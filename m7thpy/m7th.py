@@ -20,10 +20,13 @@ def main():
 		print(first_message)
 		input_val = input()
 
-
-		regex_rules = "^(derive)\s+((g\s[^\s]+)|([^\s]+))\s+((([a-zA-Z])\s+([-+]?\d+(\.\d+)?){0,1})|([a-zA-Z]))\s*$"
+		#Might assign "graph" to variable so it can be changed to anything to user may want, if I add that feature
+		#Note from September 10th: Allow regex to accept fractions and special constants
+		regex_rules = "^(derive)\s+((graph\s[^\s]+)|([^\s]+))\s+((([a-zA-Z])\s+([-+]?\d+(\.\d+)?){0,1})|([a-zA-Z]))\s*$"
 		match = re.search(regex_rules, input_val)
 
+		#have seperate module for adding "*" when doing multiplication
+		#input problems with e. sympy requires exp(x) to understand e^x. Seperate module must be made for cleaning input	
 		if (match):
 			print("acceptable input")
 			call_derivative(input_val)
